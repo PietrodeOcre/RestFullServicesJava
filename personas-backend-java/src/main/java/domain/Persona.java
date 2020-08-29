@@ -13,18 +13,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  *
  * @author pietrodeocre
  */
 /*
-Cuando usamos @Entity creamos un modelo de persona
+Cuando usamos Entity creamos un modelo de persona
 */
 @Entity
 @NamedQueries({
     @NamedQuery(name = "Persona.encontrarTodasPersonas", query = "SELECT p FROM Persona p ORDER BY p.idPersona")
 })
+@Table(name = "persona")
 public class Persona implements Serializable{
     
     @Id
