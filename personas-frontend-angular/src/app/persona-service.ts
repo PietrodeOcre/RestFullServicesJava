@@ -37,27 +37,20 @@ export class PersonaService {
   public encontrarPersona(id: number) {
     // tslint:disable-next-line: no-shadowed-variable
     const persona: Persona = this.personas.find(persona => persona.idPersona === id);
-    console.log('Persona encontrada: ' + persona.idPersona + ' ' + persona.nombre);
+    console.log('persona encontrada:' + persona.idPersona + ' ' + persona.nombre);
     return persona;
   }
 
   // tslint:disable-next-line: typedef
   public modificarPersona(id: number, persona: Persona) {
-    console.log('Persona a modificar: ' + persona.idPersona);
-    // Para actualizar el objeto de persona del arreglo
-    // tslint:disable-next-line: no-shadowed-variable
-    const personaModificadaLocal = this.personas.find(persona => persona.idPersona === id);
-    personaModificadaLocal.idPersona = persona.idPersona;
-    personaModificadaLocal.nombre = persona.nombre;
-    // Guardamos la persona en la base de datos
+    console.log('persona a modificar:' + persona.idPersona);
     this.dataService.modificarPersona(id, persona);
   }
 
   // tslint:disable-next-line: typedef
   public eliminarPersona(id: number) {
-    console.log('Persona a eliminar: ' + id);
-    // tslint:disable-next-line: triple-equals
-    const index = this.personas.findIndex(persona => persona.idPersona == id);
+    console.log('eliminar persona con id:' + id);
+    const index = this.personas.findIndex(persona => persona.idPersona === id); // encontramos el indice en el arreglo
     this.personas.splice(index, 1);
     this.dataService.eliminarPersona(id);
   }
