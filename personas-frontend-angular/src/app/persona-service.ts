@@ -43,6 +43,11 @@ export class PersonaService {
   // tslint:disable-next-line: typedef
   public modificarPersona(id: number, persona: Persona){
     console.log('Persona a modificar: ' + persona.idPersona);
+    // Para actualizar el objeto de persona del arreglo
+    const personaModificadaLocal = this.personas.find(persona => persona.idPersona == id);
+    personaModificadaLocal.idPersona = persona.idPersona;
+    personaModificadaLocal.nombre = persona.nombre;
+    // Guardamos la persona en la base de datos
     this.dataService.modificarPersona(id, persona);
   }
 
