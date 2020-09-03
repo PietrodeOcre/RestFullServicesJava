@@ -8,21 +8,21 @@ export class PersonaService {
   public personas: Persona[] = [];
   public persona: Persona;
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) { }
 
   // Se usa para modificar el valor del arreglo debido a la llamada asincrona
   // tslint:disable-next-line: typedef
-  public setPersonas(personas: Persona[]){
+  public setPersonas(personas: Persona[]) {
     this.personas = personas;
   }
 
   // tslint:disable-next-line: typedef
-  public obtenerPersonas(){
+  public obtenerPersonas() {
     return this.dataService.cargarPersonas();
   }
 
   // tslint:disable-next-line: typedef
-  public agregarPersona(persona: Persona){
+  public agregarPersona(persona: Persona) {
     console.log('Persona a agregar: ' + persona.nombre);
     this.dataService.agregarPersona(persona).subscribe(
       // tslint:disable-next-line: no-shadowed-variable
@@ -35,19 +35,20 @@ export class PersonaService {
   }
 
   // tslint:disable-next-line: typedef
-  public encontrarPersona(id: number){
+  public encontrarPersona(id: number) {
     // tslint:disable-next-line: no-shadowed-variable
     // tslint:disable-next-line: triple-equals
-    const persona: Persona = this.personas.find(persona => persona.idPersona == id);
-    console.log('Persona encontrada: ' + persona.idPersona + ' ' + persona.nombre);
-    return persona;
+    const per = this.persona = this.personas.find(persona => persona.idPersona == id);
+    console.log('Persona encontrada: ' + per.idPersona + ' ' + per.nombre);
+    return per;
   }
 
   // tslint:disable-next-line: typedef
-  public modificarPersona(id: number, persona: Persona){
+  public modificarPersona(id: number, persona: Persona) {
     console.log('Persona a modificar: ' + persona.idPersona);
     // Para actualizar el objeto de persona del arreglo
-    const personaModificadaLocal = this.personas.find(persona => persona.idPersona == id);
+    // tslint:disable-next-line: no-shadowed-variable
+    const personaModificadaLocal = this.persona = this.personas.find(persona => persona.idPersona === id);
     personaModificadaLocal.idPersona = persona.idPersona;
     personaModificadaLocal.nombre = persona.nombre;
     // Guardamos la persona en la base de datos
@@ -55,8 +56,9 @@ export class PersonaService {
   }
 
   // tslint:disable-next-line: typedef
-  public eliminarPersona(id: number){
+  public eliminarPersona(id: number) {
     console.log('Persona a eliminar: ' + id);
+    // tslint:disable-next-line: triple-equals
     const index = this.personas.findIndex(persona => persona.idPersona == id);
     this.personas.splice(index, 1);
     this.dataService.eliminarPersona(id);
