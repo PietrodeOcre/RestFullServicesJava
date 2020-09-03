@@ -44,6 +44,12 @@ export class PersonaService {
   // tslint:disable-next-line: typedef
   public modificarPersona(id: number, persona: Persona) {
     console.log('persona a modificar:' + persona.idPersona);
+    // Se actualiza el objeto persona del arreglo
+    // tslint:disable-next-line: no-shadowed-variable
+    const personaModificadaLocal = this.personas.find(persona => persona.idPersona === id);
+    personaModificadaLocal.idPersona = persona.idPersona;
+    personaModificadaLocal.nombre = persona.nombre;
+    // guardar la persona en la base de datos
     this.dataService.modificarPersona(id, persona);
   }
 
