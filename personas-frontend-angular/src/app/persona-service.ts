@@ -36,9 +36,9 @@ export class PersonaService {
   // tslint:disable-next-line: typedef
   public encontrarPersona(id: number) {
     // tslint:disable-next-line: no-shadowed-variable
-    const per = this.personas.find(persona => persona.idPersona === id);
-    console.log('Persona encontrada: ' + per.idPersona + ' ' + per.nombre);
-    return per;
+    const persona = this.personas.find(persona => persona.idPersona === id);
+    console.log('Persona encontrada: ' + persona.idPersona + ' ' + persona.nombre);
+    return persona;
   }
 
   // tslint:disable-next-line: typedef
