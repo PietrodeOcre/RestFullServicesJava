@@ -6,7 +6,6 @@ import { DataService } from './data-service';
 export class PersonaService {
 
   public personas: Persona[] = [];
-  public persona: Persona;
 
   constructor(private dataService: DataService) { }
 
@@ -37,8 +36,7 @@ export class PersonaService {
   // tslint:disable-next-line: typedef
   public encontrarPersona(id: number) {
     // tslint:disable-next-line: no-shadowed-variable
-    // tslint:disable-next-line: triple-equals
-    const per = this.persona = this.personas.find(persona => persona.idPersona == id);
+    const per = this.personas.find(persona => persona.idPersona === id);
     console.log('Persona encontrada: ' + per.idPersona + ' ' + per.nombre);
     return per;
   }
@@ -48,7 +46,7 @@ export class PersonaService {
     console.log('Persona a modificar: ' + persona.idPersona);
     // Para actualizar el objeto de persona del arreglo
     // tslint:disable-next-line: no-shadowed-variable
-    const personaModificadaLocal = this.persona = this.personas.find(persona => persona.idPersona === id);
+    const personaModificadaLocal = this.personas.find(persona => persona.idPersona === id);
     personaModificadaLocal.idPersona = persona.idPersona;
     personaModificadaLocal.nombre = persona.nombre;
     // Guardamos la persona en la base de datos
