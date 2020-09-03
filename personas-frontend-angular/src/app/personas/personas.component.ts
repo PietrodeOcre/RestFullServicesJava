@@ -28,4 +28,9 @@ export class PersonasComponent implements OnInit {
     );
   }
 
+  public irAgregar(){
+    console.log('Vamos a agregar');
+    this.router.navigate(['./persona/agregar']);
+  }
+
 }
