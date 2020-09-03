@@ -1,11 +1,12 @@
 import { Persona } from './persona.model';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { DataService } from './data-service';
 
 @Injectable()
 export class PersonaService {
 
-  personas: Persona[] = [];
+  public personas: Persona[] = [];
+  public persona: Persona;
 
   constructor(private dataService: DataService) {}
 
@@ -27,7 +28,7 @@ export class PersonaService {
       // tslint:disable-next-line: no-shadowed-variable
       (persona: Persona) => {
         // Recuperamos el objeto persona con el idPersona recien agregado
-        console.log('Se agrega la persona insertada al arreglo a traves del subcriber: '+ persona.idPersona);
+        console.log('Se agrega la persona insertada al arreglo a traves del subcriber: ' + persona.idPersona);
         this.personas.push(persona);
       }
     );
@@ -35,6 +36,8 @@ export class PersonaService {
 
   // tslint:disable-next-line: typedef
   public encontrarPersona(id: number){
+    // tslint:disable-next-line: no-shadowed-variable
+    // tslint:disable-next-line: triple-equals
     const persona: Persona = this.personas.find(persona => persona.idPersona == id);
     console.log('Persona encontrada: ' + persona.idPersona + ' ' + persona.nombre);
     return persona;
