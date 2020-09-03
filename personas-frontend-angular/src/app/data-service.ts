@@ -4,9 +4,8 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 
 
 
-/**
- * @Injectable()
- */
+
+@Injectable()
 export class DataService {
   constructor(private httpClient: HttpClient){}
 

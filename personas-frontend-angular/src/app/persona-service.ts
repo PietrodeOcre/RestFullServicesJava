@@ -2,9 +2,7 @@ import { Persona } from './persona.model';
 import { Injectable } from "@angular/core";
 import { DataService } from './data-service';
 
-/**
- * @Injectable()
- */
+@Injectable()
 export class PersonaService {
 
   personas: Persona[] = [];
@@ -15,6 +13,11 @@ export class PersonaService {
   // tslint:disable-next-line: typedef
   public setPersonas(personas: Persona[]){
     this.personas = personas;
+  }
+
+  // tslint:disable-next-line: typedef
+  public obtenerPersonas(){
+    return this.dataService.cargarPersonas();
   }
 
   // tslint:disable-next-line: typedef
