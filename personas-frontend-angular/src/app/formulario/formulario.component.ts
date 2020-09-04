@@ -41,4 +41,13 @@ export class FormularioComponent implements OnInit {
     this.router.navigate(['persona']);
   }
 
+  // tslint:disable-next-line: typedef
+  public onEliminarPersona(){
+    if (this.idPersona != null){
+      console.log('Persona a eliminar: ' + this.idPersona);
+      this.personaService.eliminarPersona(this.idPersona);
+    }
+    this.router.navigate(['persona']);
+  }
+
 }
