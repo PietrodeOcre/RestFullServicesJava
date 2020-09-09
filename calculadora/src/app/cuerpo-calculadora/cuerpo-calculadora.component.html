@@ -3,9 +3,11 @@
 <br/>
 <input type="text" #segundoInput />
 <br/><br/>
-<button mat-button color="primary" (click)="suma(primeroInput, segundoInput)">+</button>
-<button mat-button color="primary" (click)="resta(primeroInput, segundoInput)">-</button>
-<button mat-button color="primary" (click)="multiplica(primeroInput, segundoInput)">*</button>
-<button mat-button color="primary" (click)="divide(primeroInput, segundoInput)">/</button>
+
+<button class="mat-fab mat-icon-button" color="primary" (click)="suma(primeroInput, segundoInput)">+</button>
+<button class="mat-fab mat-icon-button" color="primary" (click)="resta(primeroInput, segundoInput)">-</button>
+<button class="mat-fab mat-icon-button" color="primary" (click)="multiplica(primeroInput, segundoInput)">*</button>
+<button class="mat-fab mat-icon-button" color="primary" (click)="divide(primeroInput, segundoInput)">/</button>
+
 <br/>
 <div #respuesta style="display:none;">{{resp}}</div>

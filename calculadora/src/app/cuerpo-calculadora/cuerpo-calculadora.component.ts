@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChildren, ElementRef, asNativeElements, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-cuerpo-calculadora',
@@ -16,6 +16,7 @@ export class CuerpoCalculadoraComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
   }
 
   // tslint:disable-next-line: typedef
