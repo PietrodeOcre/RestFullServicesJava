@@ -1,2 +1,6 @@
 <h1>{{titulo}}</h1>
-<app-formulario [oerandoA]="operandoA" [operandoB]="operandoB"></app-formulario>
+<app-formulario
+  (resultadoOperacion)="onResultado($event)"></app-formulario>
+<app-resultado
+  [resultado]="resultadoPadre"
+  ></app-resultado>
