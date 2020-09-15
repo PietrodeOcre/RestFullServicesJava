@@ -1,0 +1,29 @@
+<form class="form-row">
+  <div class="form-group col-md-2">
+  <label for="operandoA" class="sr-only">Operador 1</label>
+  <input type="text" name="operandoA" id="operandoA" placeholder="Escribe el primer operando"
+   class="form-control" [(ngModel)]="operandoA">
+</div>
+<div class="form-group col-md-2">
+  <label for="operandoB" class="sr-only">Operador 2</label>
+  <input type="text" name="operandoA" id="operandoB" placeholder="Escribe el segundo operando"
+   class="form-control" [(ngModel)]="operandoB">
+</div>
+<div class="col">
+  <button type="submit" class="btn btn-primary"
+  (click)="suma()">+</button>
+</div>
+<div class="col">
+  <button type="submit" class="btn btn-primary"
+  (click)="resta()">+</button>
+</div>
+<div class="col">
+  <button type="submit" class="btn btn-primary"
+  (click)="multi()">+</button>
+</div>
+<div class="col">
+  <button type="submit" class="btn btn-primary"
+  (click)="divi()">+</button>
+</div>
+
+</form>
